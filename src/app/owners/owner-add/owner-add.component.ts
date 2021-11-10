@@ -43,26 +43,9 @@ export class OwnerAddComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit(owner: Owner) {
-    console.log(
-      "Inside owner add inside onSubmit " +
-        "Owner value  address" +
-        owner.address +
-        "Owner value city" +
-        owner.city +
-        "Owner first name" +
-        owner.firstName +
-        "Owner last name" +
-        owner.lastName +
-        "Owner pets" +
-        owner.pets +
-        "Owner telephone" +
-        owner.telephone
-    );
     owner.id = null;
-
     this.ownerService.addOwner(owner).subscribe(
       (newOwner) => {
-        console.log("Insde owner service add owner subscribe");
         this.owner = newOwner;
         this.gotoOwnersList();
       },
@@ -71,7 +54,6 @@ export class OwnerAddComponent implements OnInit {
   }
 
   gotoOwnersList() {
-    console.log("inside goto owners list");
     this.router.navigate(["/owners"]);
     console.log("Navigated to /owners");
   }
